@@ -2,6 +2,7 @@ package com.managementSystem.service;
 
 import com.managementSystem.createPlayer.CreatePlayer;
 import com.managementSystem.entity.PlayerEntity;
+import com.managementSystem.exception.ResourseNotFoundException;
 import com.managementSystem.playerResponse.PlayerResponse;
 import com.managementSystem.repository.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +49,11 @@ public class PlayerService {
         return playerRepository.findAll();
     }
 
-    public PlayerResponse getPlayerById(Long playerId) {
-        return new PlayerResponse(playerRepository.findById(playerId).get());
+    public PlayerEntity getPlayerById(Long playerId) {
+        if (playerRepository.findById(playerId).isPresent()) {
+            return playerRepository.findById(playerId).get();
+        }
+
+        return null;
     }
 }

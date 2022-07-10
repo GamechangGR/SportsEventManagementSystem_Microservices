@@ -2,6 +2,7 @@ package com.managementSystem.service;
 
 import com.managementSystem.createRequest.CreateEvent;
 import com.managementSystem.entity.Event;
+import com.managementSystem.exception.ResourceNotFoundException;
 import com.managementSystem.repository.EventRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,11 @@ public class EventService {
     }
 
     public Event getEventByName(String eventName) {
+        if(eventRepo.findByEventName(eventName)==null){
+            throw new ResourceNotFoundException("Event not present");
+        }
         return eventRepo.findByEventName(eventName);
+
     }
 
 

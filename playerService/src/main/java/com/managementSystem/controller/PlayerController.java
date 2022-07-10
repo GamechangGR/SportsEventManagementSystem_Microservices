@@ -2,6 +2,7 @@ package com.managementSystem.controller;
 
 import com.managementSystem.createPlayer.CreatePlayer;
 import com.managementSystem.entity.PlayerEntity;
+import com.managementSystem.exception.ResourseNotFoundException;
 import com.managementSystem.playerResponse.PlayerResponse;
 import com.managementSystem.service.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,10 +41,22 @@ public class PlayerController {
     public ResponseEntity<List<PlayerEntity>> getAllPlayers(){
         List<PlayerEntity> list = service.getAllPlayers();
         if(list.size()<=0){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            throw new ResourseNotFoundException("Empty");
+            //return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
 
         return ResponseEntity.ok(list);
+    }
+
+
+    @GetMapping("/{id}")
+    public ResponseEntity<PlayerEntity> getPlayerById(@PathVariable("id") Long playerId){
+        PlayerEntity playerEntity =service.getPlayerById(playerId);
+        if (playerEntity==null){
+            throw new ResourseNotFoundException("player with this id does not exist");
+           // return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+        return ResponseEntity.ok(playerEntity);
     }
 
 

@@ -3,6 +3,7 @@ package com.managementSystem.controller;
 import com.managementSystem.Response.SportResponse;
 import com.managementSystem.entity.Event;
 import com.managementSystem.entity.Sports;
+import com.managementSystem.exception.ResourceNotFoundException;
 import com.managementSystem.service.SportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,7 +26,8 @@ public class SportController {
     public ResponseEntity<List<Sports>> getAllSportsDetail(){
         List<Sports> list =service.getAll();
         if(list.size()<=0){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            throw new ResourceNotFoundException("Empty");
+            //return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
         return ResponseEntity.ok(list);
     }

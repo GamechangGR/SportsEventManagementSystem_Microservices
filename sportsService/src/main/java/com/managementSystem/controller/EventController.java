@@ -3,6 +3,7 @@ package com.managementSystem.controller;
 import com.managementSystem.Response.EventResponse;
 import com.managementSystem.createRequest.CreateEvent;
 import com.managementSystem.entity.Event;
+import com.managementSystem.exception.ResourceNotFoundException;
 import com.managementSystem.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,7 +24,8 @@ public class EventController {
     {
         List<Event> list =service.getAllEvents();
         if(list.size()<=0){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            throw new ResourceNotFoundException("Empty");
+            //return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
         return ResponseEntity.ok(list);
     }
@@ -33,7 +35,7 @@ public class EventController {
 
         Event event = service.getEventByName(eventName);
         if(event==null) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            throw  new ResourceNotFoundException("Event not present");
         }
         //////----------------///////
         return ResponseEntity.ok(event);
