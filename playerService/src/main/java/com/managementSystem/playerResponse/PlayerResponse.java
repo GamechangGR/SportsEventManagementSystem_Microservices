@@ -4,7 +4,7 @@ import com.managementSystem.entity.PlayerEntity;
 
 public class PlayerResponse {
     private Long playerId;
-    private String name;
+    private String playerName;
     private int age;
     private String gender;
     private long contactNumber;
@@ -13,7 +13,7 @@ public class PlayerResponse {
 
     public PlayerResponse(PlayerEntity playerEntity){
         this.playerId = playerEntity.getPlayerId();
-        this.name = playerEntity.getPlayerName();
+        this.playerName = playerEntity.getPlayerName();
         this.age = playerEntity.getAge();
         this.gender = playerEntity.getGender();
         this.contactNumber = playerEntity.getContactNumber();
@@ -29,12 +29,12 @@ public class PlayerResponse {
         this.playerId = playerId;
     }
 
-    public String getName() {
-        return name;
+    public String getPlayerName() {
+        return playerName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String playerName) {
+        this.playerName = playerName;
     }
 
     public int getAge() {

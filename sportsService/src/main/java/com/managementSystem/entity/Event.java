@@ -5,7 +5,6 @@ package com.managementSystem.entity;
 import com.managementSystem.createRequest.CreateEvent;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table(name = "events")
@@ -17,7 +16,7 @@ public class Event {
     @Column(name = "eventId")
     private Long eventId;
     @Column(name = "eventDate")
-    private Date eventDate;
+    private String eventDate;
     @Column(name = "EventName")
     private String eventName;
     @Column(name = "noOfSlots")
@@ -46,11 +45,11 @@ public class Event {
 
 
 
-    public Date getEventDate() {
+    public String getEventDate() {
         return eventDate;
     }
 
-    public void setEventDate(Date eventDate) {
+    public void setEventDate(String eventDate) {
         this.eventDate = eventDate;
     }
 

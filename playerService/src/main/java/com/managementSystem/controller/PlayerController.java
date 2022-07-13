@@ -26,7 +26,7 @@ public class PlayerController {
     public String addPlayer(@RequestBody CreatePlayer createPlayer){
         PlayerEntity playerEntity = service.save(createPlayer);
         PlayerResponse response = new PlayerResponse(playerEntity);
-        return    "Player "+response.getName() + " added successfully.";
+        return    "Player "+ response.getPlayerName()/*playerEntity.getPlayerName()*/ + " added successfully.";
 
     }
 
@@ -50,13 +50,13 @@ public class PlayerController {
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<PlayerEntity> getPlayerById(@PathVariable("id") Long playerId){
+    public PlayerResponse getPlayerById(@PathVariable("id") Long playerId){
         PlayerEntity playerEntity =service.getPlayerById(playerId);
         if (playerEntity==null){
             throw new ResourseNotFoundException("player with this id does not exist");
            // return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
-        return ResponseEntity.ok(playerEntity);
+        return new PlayerResponse(playerEntity);
     }
 
 

@@ -29,7 +29,7 @@ public class PlayerEntity {
     }
 
     public PlayerEntity(CreatePlayer createPlayer) {
-        this.playerName = createPlayer.getName();
+        this.playerName = createPlayer.getPlayerName();
         this.age = createPlayer.getAge();
         this.gender = createPlayer.getGender();
         this.contactNumber = createPlayer.getContactNumber();

@@ -2,28 +2,28 @@ package com.managementSystem.createPlayer;
 
 public class CreatePlayer {
 
-    private String name;
+    private String playerName;
     private int age;
     private String gender;
     private long contactNumber;
     private String email;
-    private String SportsName;
+    private String sportsName;
 
-    public CreatePlayer(String name, int age, String gender, long contactNumber, String email, String sportsName) {
-        this.name = name;
+    public CreatePlayer(String playerName, int age, String gender, long contactNumber, String email, String sportsName) {
+        this.playerName = playerName;
         this.age = age;
         this.gender = gender;
         this.contactNumber = contactNumber;
         this.email = email;
-        SportsName = sportsName;
+        this.sportsName = sportsName;
     }
 
-    public String getName() {
-        return name;
+    public String getPlayerName() {
+        return playerName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
     }
 
     public int getAge() {
@@ -59,11 +59,11 @@ public class CreatePlayer {
     }
 
     public String getSportsName() {
-        return SportsName;
+        return sportsName;
     }
 
     public void setSportsName(String sportsName) {
-        SportsName = sportsName;
+        this.sportsName = sportsName;
     }
 
 

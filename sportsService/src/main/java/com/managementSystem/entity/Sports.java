@@ -1,5 +1,7 @@
 package com.managementSystem.entity;
 
+import com.managementSystem.createRequest.CreateSport;
+
 import javax.persistence.*;
 
 @Entity
@@ -18,6 +20,15 @@ public class Sports
     private String sportsName;
     @Column(name = "sportType")
     private String sportsType;
+
+    public Sports() {
+    }
+
+    public Sports(CreateSport createSport) {
+        this.noOfPlayers = createSport.getNoOfPlayers();
+        this.sportsName = createSport.getSportsName();
+        this.sportsType = createSport.getSportsType();
+    }
 
     public Long getSportsId() {
         return sportsId;

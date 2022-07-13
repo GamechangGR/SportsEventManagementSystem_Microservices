@@ -24,7 +24,7 @@ public class EventService {
     }
 
     public Event getEventByName(String eventName) {
-        if(eventRepo.findByEventName(eventName)==null){
+        if(eventRepo.findByEventName(eventName).getEventId()==null){
             throw new ResourceNotFoundException("Event not present");
         }
         return eventRepo.findByEventName(eventName);

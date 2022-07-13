@@ -3,16 +3,16 @@ package com.managementSystem.Response;
 import com.managementSystem.entity.Event;
 
 import javax.persistence.Column;
-import java.util.Date;
 
 public class EventResponse {
 
     private Long eventId;
-    private Date eventDate;
+    private String eventDate;
     private String eventName;
     private Integer noOfSlots;
     private String sportsName;
 
+    public EventResponse(){}
     public EventResponse(Event event) {
         this.eventId = event.getEventId();
         this.eventDate = event.getEventDate();
@@ -29,11 +29,11 @@ public class EventResponse {
         this.eventId = eventId;
     }
 
-    public Date getEventDate() {
+    public String getEventDate() {
         return eventDate;
     }
 
-    public void setEventDate(Date eventDate) {
+    public void setEventDate(String eventDate) {
         this.eventDate = eventDate;
     }
 

@@ -1,10 +1,12 @@
 package com.managementSystem.service;
 
 import com.managementSystem.Response.SportResponse;
+import com.managementSystem.createRequest.CreateSport;
 import com.managementSystem.entity.Sports;
 import com.managementSystem.exception.ResourceNotFoundException;
 import com.managementSystem.repository.SportsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,5 +25,9 @@ public class SportService {
             throw new ResourceNotFoundException("Sport with given name is not present");
         }
         return sportsRepo.getSportByName(sportsName);
+    }
+
+    public Sports saveSport(CreateSport createSport) {
+        return sportsRepo.save(new Sports(createSport));
     }
 }

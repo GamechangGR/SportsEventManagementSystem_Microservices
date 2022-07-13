@@ -5,7 +5,7 @@ import java.util.Date;
 public class EventResponse {
 
     private Long eventId;
-    private Date eventDate;
+    private String eventDate;
     private String eventName;
     private Integer noOfSlots;
     private String sportsName;
@@ -20,11 +20,11 @@ public class EventResponse {
         this.eventId = eventId;
     }
 
-    public Date getEventDate() {
+    public String getEventDate() {
         return eventDate;
     }
 
-    public void setEventDate(Date eventDate) {
+    public void setEventDate(String eventDate) {
         this.eventDate = eventDate;
     }
 

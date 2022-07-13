@@ -31,14 +31,14 @@ public class EventController {
     }
 
     @GetMapping("/eventByName/{eventName}")
-    public ResponseEntity<Event> getEventByName(@PathVariable("eventName") String eventName){
+    public EventResponse getEventByName(@PathVariable("eventName") String eventName){
 
         Event event = service.getEventByName(eventName);
-        if(event==null) {
-            throw  new ResourceNotFoundException("Event not present");
-        }
+//        if(event==null) {
+//            throw  new ResourceNotFoundException("Event not present");
+//        }
         //////----------------///////
-        return ResponseEntity.ok(event);
+        return new EventResponse(event);
     }
 
     @PostMapping("/addEvent")

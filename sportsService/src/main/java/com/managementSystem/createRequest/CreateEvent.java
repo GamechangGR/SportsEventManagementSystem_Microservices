@@ -1,10 +1,9 @@
 package com.managementSystem.createRequest;
 
 import javax.persistence.Column;
-import java.util.Date;
 
 public class CreateEvent {
-    private Date eventDate;
+    private String eventDate;
 
     private String eventName;
 
@@ -12,11 +11,11 @@ public class CreateEvent {
 
     private String sportsName;
 
-    public Date getEventDate() {
+    public String getEventDate() {
         return eventDate;
     }
 
-    public void setEventDate(Date eventDate) {
+    public void setEventDate(String eventDate) {
         this.eventDate = eventDate;
     }
 

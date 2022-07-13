@@ -19,7 +19,6 @@ public class PlayerService {
 
 
     public PlayerEntity save(CreatePlayer createPlayer) {
-        System.out.println(new PlayerEntity(createPlayer));
         return playerRepository.save(new PlayerEntity(createPlayer));
     }
 

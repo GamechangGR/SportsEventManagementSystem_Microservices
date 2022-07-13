@@ -11,6 +11,7 @@ public class SportResponse {
     private String sportsName;
     private String sportsType;
 
+    public SportResponse(){}
 
     public SportResponse(Sports sports) {
         this.sportsId = sports.getSportsId();
