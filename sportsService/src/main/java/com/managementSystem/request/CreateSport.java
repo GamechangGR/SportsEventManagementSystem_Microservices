@@ -1,6 +1,4 @@
-package com.managementSystem.createRequest;
-
-import javax.persistence.Column;
+package com.managementSystem.request;
 
 public class CreateSport {
 

@@ -1,4 +1,4 @@
-package com.managementSystem.playerResponse;
+package com.managementSystem.Response;
 
 import com.managementSystem.entity.PlayerEntity;
 

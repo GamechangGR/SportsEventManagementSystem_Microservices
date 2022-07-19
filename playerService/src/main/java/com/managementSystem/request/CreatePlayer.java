@@ -1,4 +1,4 @@
-package com.managementSystem.createPlayer;
+package com.managementSystem.request;
 
 public class CreatePlayer {
 
